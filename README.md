@@ -1,2 +1,3 @@
-# tictactoe.js
-TicTacToe in JavaScript
+# TicTacToe in JavaScript
+
+A simple HTML and JavaScript program to play TicTacToe.
