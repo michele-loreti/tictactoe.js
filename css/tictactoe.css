@@ -1,18 +1,42 @@
+/* GENERAL */
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
 .mainpanel {
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    grid-template-columns: auto auto auto;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: auto auto auto;
 }
 
 .messagepanel {
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cell {
-    border: 1px solid black;
-    width: 100px;
-    height: 100px;
-    background-size: 100px;
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  background-size: 100px;
+}
+
+.result {
+  font-size: 2rem;
+  margin-top: 2rem;
+}
+
+.winner_1::after {
+  content: "X";
+  color: green;
+}
+
+.winner_2::after {
+  content: "O";
+  color: blue;
 }

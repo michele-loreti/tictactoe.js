@@ -1,8 +1,7 @@
-let schema = new TicTacToe(3);
 let turno = CIRCLE;
 
 function getWinnerImageUrl(symbol) {
-    if (symbol===CROSS) {
+    if (symbol === CROSS) {
         return "url(../imgs/cross_winner.png)"
     } else {
         return "url(../imgs/circle_winner.png)"
@@ -11,7 +10,7 @@ function getWinnerImageUrl(symbol) {
 }
 
 function getImageUrl(isMoving = false) {
-    if (turno===CROSS) {
+    if (turno === CROSS) {
         if (isMoving) {
             return "url(../imgs/cross_moving.png)"
         } else {
@@ -28,7 +27,7 @@ function getImageUrl(isMoving = false) {
 
 function recordMouseOverListener(divElement, i, j) {
     divElement.addEventListener('mouseover', _ => {
-        if (!schema.isOver()&&(schema.isEmpty(i ,j))) {
+        if (!schema.isOver() && (schema.isEmpty(i, j))) {
             divElement.style.backgroundImage = getImageUrl(true);
         }
     });
@@ -39,7 +38,10 @@ function showDrawMessage() {
 }
 
 function showWinnerMessage() {
-
+    const result = document.querySelector(".result");
+    const winner = schema.winner();
+    result.classList.add(`winner_${winner}`)
+    result.textContent = `The winner is: `
 }
 
 
@@ -62,8 +64,8 @@ function handleGameTermination() {
 
 function recordMousePressedListener(divElement, i, j) {
     divElement.addEventListener('mousedown', _ => {
-        if (!schema.isOver()&&(schema.isEmpty(i, j))) {
-            if (turno===CROSS) {
+        if (!schema.isOver() && (schema.isEmpty(i, j))) {
+            if (turno === CROSS) {
                 schema.addCross(i, j);
             } else {
                 schema.addCircle(i, j);
@@ -80,7 +82,7 @@ function recordMousePressedListener(divElement, i, j) {
 
 function recordMouseOutListener(divElement, i, j) {
     divElement.addEventListener('mouseout', _ => {
-        if (!schema.isOver()&&(schema.isEmpty(i, j))) {
+        if (!schema.isOver() && (schema.isEmpty(i, j))) {
             divElement.style.backgroundImage = '';
         }
     });
